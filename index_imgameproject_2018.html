@@ -1,0 +1,62 @@
+<meta name="keywords" content="IMGameProject, imgameproject, Warriors Memory Game, Warriors, Memory, Game, A-Maze Shapes Game, a-maze, A-maze, shapes, android 3d games " />
+<meta name="description" content="IMGameProject is a 3d games project introducing games for PC, Mac, Linux and Android game applications developed by Software developer Nikolaos Moraitis" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--for social media-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--meta for responsive screen-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ImGameProject HomePage</title>
+<style type="text/css">
+</style>
+<link rel="stylesheet" type="text/css" href="index_css_imgameproject_2018.css">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<script>
+/* javascript */
+window.onload = function(){
+    document.body.setAttribute("class","loaded");
+
+    // JS is to make the text editable, not required for the effect. Thanks for the suggestion @chriscoyier!
+    var h6 = document.querySelector("h6");
+
+    h6.addEventListener("input", function() {
+        this.setAttribute("data-heading", this.innerText);
+    });
+}
+</script>
+</head>
+
+<body>
+  <div class="grid">
+    <div class="title">
+      <div class="logo"><img id="circular_img" class="fadeIn fadeIn-3s" src="IMGameProject_logo.jpg" /></div>
+      <div class="main_title"><h6 contenteditable data-heading="ImGameProject">ImGameProject</h6></div>
+    </div>
+    <div class="sidebar">
+      <p><i>"Give birth to ideas... <br />
+       Develop your ideas...<br />
+       Play your ideas!"</i></p>
+      </br>
+      <a href="About_page.html"> <h3> About Us </h3> </a>
+       <div class="socialmedia"><a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-google"></a>
+          <a href="#" class="fa fa-linkedin"></a>
+          <a href="#" class="fa fa-youtube"></a>
+          <a href="#" class="fa fa-instagram"></a>
+        </div>
+     </div>
+    <div class="content">
+      <div class="warriors_game_div"><a href="WarriorsMemoryGame_page.html"><img height="150" width="150" class=" fadeIn_size fadeIn fadeIn-3s" src="WarriorsMemoryGame_glass_effect.jpg" alt="game1pci" /></a></div>
+      <div class="maze_game_div"><a href="A-Maze_Shapes_page.html"><img height="150" width="150" class="fadeIn_size fadeIn fadeIn-3s" src="A-Maze_Shapes_glass_effect.jpg"/></a></div>
+    </div>
+    <div class="footer">
+      <p>Copyright © 2015 Nick Moraitis. All rights reserved.<br />
+        -----------------------
+      </p>
+    </div>
+  </div>
+</body>
+</html>

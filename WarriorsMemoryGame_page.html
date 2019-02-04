@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="description" content="Warriors Memory Game is a 3D game of IMGameProject project." />
+<meta name="keywords" content="warriors memory game, warriors, memory, game, imgameproject" />
+<!--meta for responsive screen-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warriors Memory Game</title>
+<!--JQuery Library-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(e) {
+//    $("body").load(function (e){
+		var div=$(".title_square");
+		div.animate({width:'500px',opacity:'0.2'},"slow");
+		div.animate({height:'50px',opacity:'0.2'},"slow");
+	});
+//});
+
+function Slider(){
+	$(".pic_slider #1").fadeIn(500);
+	$(".pic_slider #1").delay(5500).fadeOut({direction:"left"},500);
+
+	var sizeCount = $(".pic_slider img").size();
+	var count_ = 2;
+
+	setInterval(function(){
+			$(".pic_slider #"+count_).fadeIn({direction:"right"},500);
+			$(".pic_slider #"+count_).delay(5500).fadeOut({direction:"left"},500);
+
+			if(count_==sizeCount){
+				count_=1;
+			}else{
+				count_= count_+1;
+			}
+		},6500);
+}
+<!--JScroll bar-->
+$(document).ready(function() {
+ // check where the shoppingcart-div is
+ var offset = $('nav').offset();
+
+ $(window).scroll(function () {
+   var scrollTop = $(window).scrollTop(); // check the visible top of the browser
+
+   if (offset.top<scrollTop) $('nav').addClass('fixed_nav');
+   else $('nav').removeClass('fixed_nav');
+  });
+});
+</script>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	margin: 0;
+	background-color: #F8F8F8;
+	padding: 0;
+	color: #000;
+	text-align: center;
+}
+/*Responsive body*/
+@media only screen and (max-width: 600px) {
+	body {
+		text-align:left;
+	}
+}
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+	/*font-style: italic;*/
+	text-decoration: none;
+	text-align: center;
+	/*font-family: Verdana, Geneva, sans-serif;*/
+}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+	text-decoration: none;
+}
+/* ~~ this fixed width container surrounds the other divs ~~ */
+.container {
+	width: 960px;
+	background-color: #F8F8F8;
+	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
+	font-family: Georgia, "Times New Roman", Times, serif;
+	text-decoration: none;
+	font-size: 12px;
+	font-style: italic;
+}
+/* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
+.header {
+	background-color: #F8F8F8;
+}
+/* ~~ This is the layout information. ~~
+
+1) Padding is only placed on the top and/or bottom of the div. The elements within this div have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
+
+*/
+
+.content {
+	background-color: #F8F8F8;
+	height: auto;
+	width: auto;
+	padding-top: 500px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+}
+/* ~~ The footer ~~ */
+.footer {
+	padding: 10px 0;
+	background-color: #E8E8E8;
+}
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear: both;
+	height: 0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+#title1 {
+	font-size: 18px;
+	font-style: normal;
+	font-weight: bold;
+	font-family: "Arial Black", Gadget, sans-serif;
+	text-transform: capitalize;
+	text-align: left;
+	letter-spacing: 3.5px;
+	text-decoration: none;
+}
+#body1 {
+	background-color: #F8F8F8;
+}
+#body1 .container p {
+	/*font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	font-style: italic;*/
+	text-decoration: none;
+	text-align: left;
+}
+#body1 .container #title1 {
+	font-family: "Showcard Gothic";
+	letter-spacing: 3.5px;
+	text-align: left;
+	font-size: 24px;
+	font-style: normal;
+	text-decoration: blink;
+}
+
+.title_square{
+	background:#909;
+	height:30px;
+	width:30px;
+	position:absolute;
+	border-radius: 30px 30px 100px 30px;
+}
+
+.pic_slider{
+	width:350px;
+	height:300px;
+	overflow:hidden; /*anything that overflows the given width and height is hidden*/
+	margin:30px auto;
+	/*about gif*/
+	background-image:url(IMGameProject_logo_gif.gif);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+/* responsive pic_slider*/
+@media only screen and (max-width: 600px) {
+	.pic_slider{
+		position: relative;
+    left: -20%;
+		background-image:url(IMGameProject_logo_gif.gif);
+		background-repeat:no-repeat;
+		background-position:left;
+	}
+}
+
+.shadow_pic{
+	background-image:url(shadow_pic_.jpg);
+	background-repeat:no-repeat;
+	background-position:top;
+	/*exactly the same width and height of the original image*/
+ 	width: 350px;
+	height: 144px;
+	margin: -60px auto;
+}
+/* responsive shadow*/
+@media only screen and (max-width: 600px) {
+	.shadow_pic{
+		position: relative;
+    left: -20%;
+	}
+}
+.pic_slider img{
+	width:350px;
+	height:300px;
+	display:none;
+}
+
+#header_h3{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#A637A6;
+	font-size:18px;
+	font-style:normal;
+	text-align:left;
+}
+#details{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-style:normal;
+	text-align:left;
+}
+
+
+<!-- Navigation Bar -->
+.navbar{
+	position:fixed;
+	right:50px;
+}
+
+nav {
+	width: 70px;
+	height: 70px;
+	position:fixed;
+	right:50px;
+	box-shadow: 25px 10px 10px #888888;
+}
+
+/*ul {
+	text-align: center;
+} */
+
+ul li {
+	cursor: pointer;
+	-webkit-transition: padding .05s linear;
+	-moz-transition: padding .05s linear;
+	-ms-transition: padding .05s linear;
+	-o-transition: padding .05s linear;
+	transition: padding .05s linear;
+}
+ul li.drop {
+	position: relative;
+}
+ul > li {
+	display: inline-block;
+}
+ul li a {
+	line-height: 80px;
+	padding: 0 20px;
+	height: 80px;
+	color: #777;
+	-webkit-transition: all .1s ease-out;
+	-moz-transition: all .1s ease-out;
+	-ms-transition: all .1s ease-out;
+	-o-transition: all .1s ease-out;
+	transition: all .1s ease-out;
+}
+ul li a:hover {
+	color: #eee;
+}
+
+.dropOut .triangle {
+	width: 0;
+	height: 0;
+	position: absolute;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid white;
+	top: -8px;
+	left: 50%;
+	margin-left: -8px;
+}
+.dropdownContain {
+	width: 100px;
+	position: absolute;
+	z-index: 2;
+	top: -400px;
+	padding-top: 10px;
+	padding-left: 5px;
+}
+.dropOut {
+	width: 100px;
+	background: white;
+	float: center;
+	position: relative;
+	margin-top: 0px;
+	opacity: 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 6px rgba(0,0,0,.15);
+	-moz-box-shadow: 0 1px 6px rgba(0,0,0,.15);
+	box-shadow: 0 1px 6px rgba(0,0,0,.15);
+	-webkit-transition: all .1s ease-out;
+	-moz-transition: all .1s ease-out;
+	-ms-transition: all .1s ease-out;
+	-o-transition: all .1s ease-out;
+	transition: all .1s ease-out;
+}
+
+.dropOut ul {
+	float: center;
+	padding: 0px 0;
+}
+.dropOut ul li {
+	float: center;
+	width: 100px;
+	padding-top: 30px;
+	color: #777;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-transition: background .1s ease-out;
+	-moz-transition: background .1s ease-out;
+	-ms-transition: background .1s ease-out;
+	-o-transition: background .1s ease-out;
+	transition: background .1s ease-out;
+}
+
+.dropOut ul li:hover {
+	background: #f6f6f6;
+}
+
+ul li:hover a { color: white; }
+ul li:hover .dropdownContain { top: 65px; }
+ul li:hover .underline { border-bottom-color: #777; }
+ul li:hover .dropOut { opacity: 1; margin-top: 8px; }
+
+.fixed_nav{
+	position: fixed;
+        top: 20px;
+        margin-left: 720px; }
+
+<!--end Navigation Bar -->
+-->
+</style>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body id="body1" onload="Slider();">
+<div class="container">
+  <div class="header"><a href="index.html"><img src="IMGameProject_logo.jpg" alt="Insert Logo Here" name="Insert_logo" width="104" height="87" id="Insert_logo" style="background-color #F8F8F8; display:block;" /></a> </div>
+  <div class="navbar">
+  <nav>
+      <ul>
+      	<li class="drop"><a href="#"><img src="app_menu_bar.jpg" style="width:70px; height:70px;" onmouseover=" this.src='app_menu_bar_hover.jpg'" onmouseout="this.src='app_menu_bar.jpg'"/></a>
+      	  <div class="dropdownContain">
+					<div class="dropOut">
+						<div class="triangle"></div>
+						<ul>
+        					<li class="subnav_lvlA"><a href="WarriorsMemoryGame_page.html"><img src="WarriorsMemoryGame_glass_effect.jpg" style=" width:50px; height:50px;"/> </a></li>
+            				<li class="subnav_lvlB"><a href="A-Maze_Shapes_page.html"><img src="A-Maze_Shapes_glass_effect.jpg" style=" width:50px; height:50px;"/> </a></li>
+            				<li class="subnav_lvlC"><a href="About_page.html"> <img src="about_pic.jpg" style=" width:50px; height:50px;"/> </a></li>
+        				</ul>
+					</div>
+			</div>
+  		</li>
+      </ul>
+  </nav>
+  </div>
+
+  <div class="title_square"></div>
+  <p id="title1" style="padding-left:25px;"> Warriors Memory Game </p>
+  <br/>
+  <br/>
+  <br/>
+  <div class="pic_slider">
+  <img id="1" src="WarriorsMemoryGame_pic_1.jpg"  border="0" alt="Warriors Memory Game pic_1"/>
+  <img id="2" src="WarriorsMemoryGame_pic_2_main_menu.jpg" border="0" alt="Warriors Memory Game pic_2"/>
+  <img id="3" src="WarriorsMemoryGame_pic_3_game_play.jpg" border="0" alt="Warriors Memory Game pic_3"/>
+  <img id="4" src="WarriorsMemoryGame_pic_4_game_play.jpg" border="0" alt="Warriors Memory Game pic_4"/>
+  <img id="5" src="WarriorsMemoryGame_pic_5_game_play.jpg" border="0" alt="Warriors Memory Game pic_5"/>
+  </div>
+  <div class="shadow_pic"></div>
+  <br/>
+  <br/>
+  <p><h3 id="header_h3">Introduction: </h3></p><br/>
+ <p id="details">A 3D memory card game developed in Unity3D game engine.</p> <br/>
+<p><h3 id="header_h3">Details: </h3></p><br/>
+<p id="details">Find the pairs and get all the points before the time ends! You have 8 levels to complete and the number of cards get growing up on each level making it harder to collect all the points to become victorious!
+<br/>Please, don't forget to come back to our website and give us a feedback.
+<br/>So...Download the game and give it a try!</p>
+  <br/>
+  <br/>
+  <p><h3 id="header_h3"> Updates:</h3></p><br/>
+  <p id="details"> Warriors Memory Game Elements version NOW available! Check it out guys!
+  <br/>
+  <img src="logo_250x250.jpg" />
+  </p>
+  <br/>
+  <br/>
+ <p><h3 id="header_h3">Share it!</h3></p><br/>
+ <p>
+ 	<table>
+    	<tr>
+        	<td><a href="http://www.facebook.com/sharer.php?u=[http://imgameproject.comeze.com/WarriorsMemoryGame_page.html]#disqus_thread" target="_blank"><img src="facebook_share_logo.jpg"/></a></td>
+            <td><a href="http://www.twitter.com/home?status=[http://imgameproject.comeze.com/WarriorsMemoryGame_page.html]#disqus_thread" target="_blank"><img src="twitter_share_logo.jpg"/></a></td>
+            <td><a href="https://plus.google.com/share#disqus_thread" target="_blank"><img src="googlePlus_share_logo.jpg"/></a></td>
+    	</tr>
+    </table>
+    <br/>
+    <br/>
+ </p>
+<div id="download_button"><a href="http://imgameproject.comeze.com/downloadHits.php" target="_blank"><img src="download_button_normal_pc_mac.jpg" onmouseover="this.src='download_button_hover_pc_mac.jpg'" onmouseout="this.src='download_button_normal_pc_mac.jpg'" onclick="buttonCounter(this.value)"/></a> </div> <h3> <?php
+
+$hit_count = @file_get_contents('count.txt');
+echo $hit_count;
+
+?> Download Hits! </h3>
+
+<div id="download_button_2" ><a href="http://imgameproject.comeze.com/downloadHits_andr_wmg.php" target="_blank"><img src="download_button_normal_android.jpg" onMouseOver="this.src='download_button_hover_android.jpg'" onMouseOut="this.src='download_button_normal_android.jpg'"/></a></div> <h3> <?php
+
+$hit_count = @file_get_contents('count_andr_wmg.txt');
+echo $hit_count;
+
+?> Download Hits! </h3>
+
+  <!-- end .header -->
+</div>
+<i style="font-size:10px">Tested on: Samsung Galaxy Fame</i>
+<br/><br/>
+<br/><br/>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'imgameproject'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<!--<div class="content">
+</div>-->
+<!-- end .content -->
+<div class="footer">
+  <p>Copyright © 2015 Nick Moraitis. All rights reserved.<br />
+    ----------------------- </p>
+  <!-- end .footer --></div>
+<!-- end .container -->
+</div>
+
+ <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'imgameproject'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+</body>
+</html>
